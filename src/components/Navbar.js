@@ -9,10 +9,11 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
   const menuItems = [
     { label: "Web Development", section: "webdev" },
     { label: "SEO Improvement", section: "seo" },
-    { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/consult" },
+   
     { label: "Mobile App", href: "/mobile-app" },
     { label: "Chat Bot", href: "/chatbot" },
+     { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/consult" },
   ];
 
   const handleNavigateToSection = (section) => {
