@@ -17,7 +17,7 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
   const menuItems = [
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/consult" },
-    { label: "Mobile App", href: "#mobile-app" },
+    { label: "Mobile App", href: "/mobile-app" },
   ];
 
   return (
@@ -74,9 +74,11 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
         </div>
 
         {/* Consult Now (desktop only) */}
-        <button className="ml-4 max-lg:hidden px-3 py-1 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
+        <a href="/consult">
+          <button className="ml-4 max-lg:hidden px-3 py-1 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
           Consult Now
         </button>
+        </a>
 
         {/* Hamburger for mobile */}
         <div className="lg:hidden">
@@ -152,9 +154,11 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
 
           {/* Mobile Consult Button */}
           <div className="mt-6 text-center">
-            <button className="w-1/2 px-3 py-2 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
+            <a href="/consult">
+              <button className="w-1/2 px-3 py-2 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
               Consult Now
             </button>
+            </a>
           </div>
         </div>
       </div>

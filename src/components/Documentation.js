@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import SS from "../assets/chatbots.png";
 
 const Documentation = () => {
   const apiCode = `fetch("https://Donaldhans.chatbot.com", {
@@ -20,9 +21,13 @@ const Documentation = () => {
     <section className="min-h-screen w-full px-6 py-24 bg-gradient-to-br from-purple-50 via-white to-blue-50">
       {/* Title */}
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-center text-transparent bg-clip-text bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 mb-16">
-        Build amazing bots <br /> with <span className="inline-block font-bold text-transparent bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text">DonaldHans API</span>
+        Build amazing bots <br /> with{" "}
+        <span className="inline-block font-bold text-transparent bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text">
+          DonaldHans API
+        </span>
       </h1>
 
+      {/* First Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Side - Description & Download */}
         <div>
@@ -53,6 +58,34 @@ const Documentation = () => {
           <pre className="bg-black text-green-400 text-sm p-6 overflow-x-auto font-mono leading-relaxed">
             <code>{apiCode}</code>
           </pre>
+        </div>
+      </div>
+
+      {/* Second Grid: Chat Interface Preview */}
+      <div className="max-w-7xl mx-auto mt-32 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left Side - Mac Window with Screenshot */}
+        <div className="rounded-xl overflow-hidden border border-gray-300 shadow-xl">
+          {/* MacOS Title Bar */}
+          <div className="flex items-center space-x-2 px-4 py-2 bg-gray-100 border-b">
+            <span className="w-3 h-3 bg-red-500 rounded-full" />
+            <span className="w-3 h-3 bg-yellow-500 rounded-full" />
+            <span className="w-3 h-3 bg-green-500 rounded-full" />
+            <span className="ml-4 text-sm text-gray-500">chatbot-ui.png</span>
+          </div>
+
+          {/* Screenshot Image */}
+          <img src={SS} alt="Chatbot Screenshot" className="w-full h-auto" />
+        </div>
+
+        {/* Right Side - Description */}
+        <div>
+          <h2 className="text-4xl font-bold text-purple-900 mb-4">Robust Chat UI 💬</h2>
+          <p className="text-gray-700 leading-relaxed text-base mb-6">
+            Our beautifully designed chatbot interface is built for seamless, real-time interaction. From live typing indicators to adaptive design, it ensures a smooth user experience across all devices.
+          </p>
+          <p className="text-gray-700 leading-relaxed text-base">
+            With built-in conversation memory, emoji support, and smart reply suggestions, your users feel understood and engaged — every step of the way.
+          </p>
         </div>
       </div>
     </section>

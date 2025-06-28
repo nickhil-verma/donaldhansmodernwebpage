@@ -31,7 +31,7 @@ const Consult = () => {
     console.log("Form submitted");
   }
   return (
-    <section className=' flex min-h-screen w-full flex-row items-center justify-center bg-gradient-to-br from-purple-50 via-white to-blue-50 p-10'>
+    <section className=' flex min-h-screen w-full flex-row max-md:flex-col items-center justify-center bg-gradient-to-br from-purple-50 via-white to-blue-50 p-10'>
       <img src={CONTACT} alt="Contact Us" className=" mix-blend-multiply  object-cover" />
       <div className="shadow-input mx-auto w-full max-w-md rounded-none   p-4 md:rounded-2xl md:p-8">
       <h2 className="text-xl font-bold text-blue-700">

@@ -19,14 +19,16 @@ import Projects from "./pages/Projects";
 import Consult from "./pages/Consult";
 import ChatBot from "./pages/ChatBot";
 import { SignupFormDemo } from "./components/signup";
+import MobileApp from "./pages/MobileApp";
+import SupportPage from "./components/SupportPage";
 
-// ⛳ Use a wrapper component to access location
+ 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // 📍 Hide Navbar on /Chatbot
-  const hideNavbarRoutes = ["/Chatbot"];
+ 
+  const hideNavbarRoutes = ["/Chatbot" ,"/Support" ];
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
   return (
@@ -64,6 +66,8 @@ const Layout = () => {
         <Route path="/consult" element={<Consult />} />
         <Route path="/about" element={<About />} />
         <Route path="/Chatbot" element={<ChatBot />} />
+        <Route path="/mobile-app" element={<MobileApp />} />
+          <Route path="/support" element={<SupportPage />} />
         <Route path="/signup" element={<SignupFormDemo />} />
       </Routes>
 

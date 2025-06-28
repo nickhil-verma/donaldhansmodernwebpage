@@ -1,15 +1,18 @@
-import { useEffect } from "react"
+import { useEffect,useState } from "react"
 import React from 'react'
 import { motion } from "framer-motion" 
 import Pricing from "../components/Pricing";
 import Documentation from "../components/Documentation";
 import { SVGMaskEffect } from "../components/SVGMaskEffect";
-
+import Support from "../components/Support";
+import setOpen from "../components/Support";
 const ChatBot = () => {
     React.useEffect(() => {
         document.title = "DH AI ChatBot";
     }, []);
+     const [open, setOpen] = useState(false);
   return (
+    
    <section className="min-w-full">
     <section>
         <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
@@ -25,7 +28,7 @@ const ChatBot = () => {
           Login
         </button></a>
       </nav>
-
+        <Support/>
       {/* Decorative Borders */}
       <div className="absolute inset-y-0 left-0 h-full w-px bg-blue-100/80 dark:bg-purple-100/30">
         <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-purple-400 to-transparent" />
@@ -75,9 +78,9 @@ const ChatBot = () => {
           transition={{ duration: 0.4, delay: 1 }}
           className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
         >
-          <button className="w-60 transform rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 dark:bg-purple-500 dark:hover:bg-purple-600">
+           <a href="/support"><button  onClick={() =>setOpen(!open)} className="w-60 transform rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 dark:bg-purple-500 dark:hover:bg-purple-600">
             Try Chatbot
-          </button>
+          </button> </a>
           <button className="w-60 transform rounded-lg border border-blue-200 bg-white px-6 py-2 font-medium text-blue-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 dark:border-purple-400 dark:bg-black dark:text-purple-100 dark:hover:bg-purple-950">
             Learn More
           </button>

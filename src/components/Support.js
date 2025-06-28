@@ -144,6 +144,11 @@ const getAIResponse = (userMessage, conversationHistory = []) => {
 
 const SupportWidget = () => {
   const [open, setOpen] = useState(false);
+  // Export setOpen for use in other files
+  React.useEffect(() => {
+    window.__setSupportWidgetOpen = setOpen;
+    return () => { delete window.__setSupportWidgetOpen; };
+  }, []);
   const [chat, setChat] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
@@ -199,6 +204,7 @@ const SupportWidget = () => {
       {/* Floating Chat Button */}
       <button
         onClick={() => setOpen(!open)}
+        
         className="fixed animate-pulse bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold p-4 rounded-full shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
       >
         <MessageCircle size={24} />
@@ -227,6 +233,7 @@ const SupportWidget = () => {
                 </button>
                 <button
                   onClick={() => setOpen(false)}
+
                   className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
                 >
                   ✕
