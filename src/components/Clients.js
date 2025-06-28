@@ -5,22 +5,16 @@ const clientLogos = [
   "https://i.postimg.cc/W1HCbw0m/sushiama-removebg-preview.png",  
  
   'https://loopflip.co/assets/loopflip_logo.svg',
-
-  // Original: 'https://images.icon-icons.com/2699/PNG/512/apple_logo_icon_168588.png',
-  // This already looks decent, but let's find a more official-looking transparent one.
-  'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg', // Apple Logo (SVG, black, transparent) - SVG is better!
+    'https://i.postimg.cc/ncCZ8TnB/Cups24-white-logo-1024x.webp',//cups24 logo (white, transparent background)
+  
   'https://i.postimg.cc/sXcQWRKG/bytedancepng.png',  
-  // Original: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-  // This is already an SVG with a transparent background! Perfect.
+   
   'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg', // Google Logo (SVG, transparent)
     'https://i.postimg.cc/HkHrBRMY/R.png',
-  // Original: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png',
-  // This is a PNG derived from an SVG, already good.
+   
   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png', // Amazon Logo (transparent PNG from SVG)
   'https://i.postimg.cc/6QB2T3dX/d0a38d-24866c59c8af46e789398b90866095d7-mv2-removebg-preview.png',  
-  // Original: 'https://www.thoughtco.com/thmb/AQxsKZYkFu6kR-Rnkf-7DV2oD0w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Coca_cola_logo_font-56a248ba5f9b58b7d0c8aec8.jpg',
-  // This is a JPG. Replacing with a transparent PNG/SVG of Coca-Cola.
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/512px-Coca-Cola_logo.svg.png', // Coca-Cola Logo (transparent PNG from SVG)
+  
 
   
   'https://i.postimg.cc/SKdT3ny1/Kungfu-tea-removebg-preview.png',

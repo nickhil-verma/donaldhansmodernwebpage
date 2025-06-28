@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import CONTACT from "../assets/Contactus.gif";
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import Navbar from '../components/Navbar';
@@ -27,13 +27,14 @@ const BottomGradient = () => (
 );
 
 const Consult = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted");
   }
   return (
     <>
-    <Navbar/>
+   <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     <section className=' flex min-h-screen w-full flex-row max-md:flex-col items-center justify-center bg-gradient-to-br from-purple-50 via-white to-blue-50 p-10'>
       <img src={CONTACT} alt="Contact Us" className=" mix-blend-multiply  object-cover" />
       <div className="shadow-input mx-auto w-full max-w-md rounded-none   p-4 md:rounded-2xl md:p-8">
