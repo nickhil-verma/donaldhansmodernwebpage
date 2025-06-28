@@ -194,7 +194,7 @@ const Analytics = () => {
         </div>
 
         {/* Left Section (now right): MacBook Window Card with Analytics - Order adjusted for responsiveness */}
-        <div className="flex-1 w-full lg:w-1/2 order-1 lg:order-2">
+        <div className="hover:scale-105 duration-500 flex-1 w-full lg:w-1/2 order-1 lg:order-2">
           <div className="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
             {/* Window Header */}
             <div className="flex items-center p-3 border-b border-gray-200 bg-gray-50">

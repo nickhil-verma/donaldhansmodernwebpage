@@ -88,7 +88,10 @@ const ChatBot = () => {
     </div>
     </section>
     <Documentation/>
-    <SVGMaskEffect/>
+    <section className="w-[100vw] h-[100vh] flex items-center justify-center relative">
+            <SVGMaskEffect/>
+
+    </section>
     <Pricing/>
     
    </section>

@@ -100,7 +100,7 @@ const revealText =
 
   return (
     <div
-      className="relative w-full h-[40rem]  bg-white overflow-hidden"
+      className="relative w-[100%]   h-[40rem]  bg-white overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
