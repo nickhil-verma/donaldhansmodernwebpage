@@ -41,6 +41,7 @@ const FloatingShape = ({ className, delay = 0 }) => (
 );
 
 const MobileApp = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('Pro');
 
   const plans = [
@@ -66,7 +67,7 @@ const MobileApp = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     <div className="bg-white py-10 text-gray-800 font-sans">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-20 px-4 text-center overflow-hidden">
