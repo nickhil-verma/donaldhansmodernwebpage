@@ -9,9 +9,11 @@ export const PreFooterCTA = () => (
     <p className="text-lg opacity-90 mb-6">
       Donald Hans provides cutting-edge IT solutions tailored to your business growth.
     </p>
-    <button className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition">
+    <a href="/consult">
+      <button className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition">
       Get Started
     </button>
+    </a>
   </div>
 );
 
