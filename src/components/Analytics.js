@@ -178,7 +178,7 @@ const Analytics = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-t from-blue-50 to-white min-h-screen flex items-center justify-center">
+    <section id="seo"className="py-20 px-6 bg-gradient-to-t from-blue-50 to-white min-h-screen flex items-center justify-center">
       <div className="container mx-auto flex flex-col lg:flex-row gap-12 items-center lg:items-start">
         {/* Right Section (now left): Text Content - Order adjusted for responsiveness */}
         <div className="flex-1 w-full lg:w-1/2 lg:pr-16 mt-12 lg:mt-0 order-2 lg:order-1">

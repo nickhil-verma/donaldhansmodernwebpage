@@ -7,9 +7,10 @@ import Globe from "./Globe";
 
 const features = [
   {
-    title: "Strategic IT Consulting",
-    description:
-      "Align your technology with business goals. We provide expert IT strategy, roadmap development, and digital transformation guidance to drive growth and efficiency.",
+   title: "Tech Strategy That Actually Moves the Needle",
+description:
+  "Forget generic IT advice. We deliver bold, business-driven technology strategies that unlock growth, streamline operations, and future-proof your digital presence. From roadmap to execution, we help you make smarter, faster, and more impactful tech decisions that align perfectly with your vision.",
+
     image: ANALYTICS,  
     className: "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2",
   },
@@ -28,9 +29,9 @@ const features = [
     className: "",
   },
   {
-    title: "Secure & Efficient Deployment",
-    description:
-      "With our blazing fast, cutting-edge infrastructure (backed by leading cloud providers), you can deploy solutions instantly and securely globally.",
+    title: "Go Global in Seconds",
+description: "Leverage a secure, high-speed deployment pipeline built on world-class cloud infrastructure—engineered to scale with you, anywhere on Earth.",
+
     component: <Globe  />,  
     className: "sm:col-span-2 max:md-h   lg:col-span-2",
   },
@@ -70,8 +71,9 @@ const FeatureSection = () => {
           Tailored Solutions for Your Business
         </h2>
         <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-          We provide comprehensive IT consulting services designed to optimize your operations, enhance security, and drive innovation.
-        </p>
+  With deep roots in Silicon Valley, we help you align technology with business goals — streamlining operations, enhancing security, and unlocking new opportunities through smart, strategic innovation.
+</p>
+
       </div>
 
       <div

@@ -9,11 +9,11 @@ const clientLogos = [
   // Original: 'https://images.icon-icons.com/2699/PNG/512/apple_logo_icon_168588.png',
   // This already looks decent, but let's find a more official-looking transparent one.
   'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg', // Apple Logo (SVG, black, transparent) - SVG is better!
-
+  'https://i.postimg.cc/sXcQWRKG/bytedancepng.png',  
   // Original: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
   // This is already an SVG with a transparent background! Perfect.
   'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg', // Google Logo (SVG, transparent)
-
+    'https://i.postimg.cc/HkHrBRMY/R.png',
   // Original: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png',
   // This is a PNG derived from an SVG, already good.
   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png', // Amazon Logo (transparent PNG from SVG)

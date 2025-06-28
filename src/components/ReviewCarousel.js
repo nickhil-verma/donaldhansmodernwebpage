@@ -3,35 +3,30 @@ import { FaStar, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const reviews = [
   {
-    name: "Alice Johnson",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Jean-Michel JOYE",
+    image: "https://i.postimg.cc/DZhYxqh4/1517681973167.jpg",
     rating: 5,
     text: "Donald Hans delivered excellent web solutions. Super fast and modern!",
   },
   {
-    name: "Mark Patel",
+    name: "marshall",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
     rating: 4,
     text: "Very responsive and professional. Highly recommend their IT team.",
   },
   {
-    name: "Emily Carter",
+    name: "Julien Beha",
     image: "https://randomuser.me/api/portraits/women/3.jpg",
     rating: 5,
     text: "Great experience. They improved our SEO drastically.",
   },
   {
-    name: "James Smith",
+    name: "Bryan Meyer",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
     rating: 5,
     text: "Creative and timely. Donald Hans is our go-to IT partner.",
   },
-  {
-    name: "Sophia Lee",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-    rating: 4,
-    text: "They understand business needs and deliver high quality results.",
-  },
+   
 ];
 
 const ReviewCard = ({ review }) => (

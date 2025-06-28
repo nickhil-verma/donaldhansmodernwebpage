@@ -3,6 +3,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import FAQSection from '../components/FAQSection';
 import { PreFooterCTA } from '../components/FooterSection';
+import Navbar from '../components/Navbar';
 
 const galleryItems = [
   {
@@ -64,6 +65,8 @@ const MobileApp = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="bg-white py-10 text-gray-800 font-sans">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-20 px-4 text-center overflow-hidden">
@@ -104,7 +107,8 @@ const MobileApp = () => {
             <span className="font-medium text-purple-600"> elegance</span>.
           </motion.p>
           
-          <motion.button
+          <a href='/consult'>
+            <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -114,6 +118,7 @@ const MobileApp = () => {
           >
             Get Started Today
           </motion.button>
+          </a>
         </div>
       </section>
 
@@ -181,111 +186,54 @@ const MobileApp = () => {
           </div>
         </div>
       </section>
+        {/* Build With Us Now Section */}
+<section className="relative py-24 bg-gradient-to-br from-white via-indigo-50 to-purple-50 px-4 text-center overflow-hidden">
+  {/* Optional background blur & radial overlay */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.08),transparent_50%)]" />
+  <div className="absolute inset-0 backdrop-blur-sm bg-white/10" />
 
-      {/* Pricing Section */}
-      <section className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-24 px-4 text-black relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.1),transparent_70%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.05),transparent_70%)]" />
-        
-        <div className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-black mb-4 text-black">
-              Choose Your Plan
-            </h2>
-            <p className="text-xl text-gray-700 font-light">
-              Flexible pricing for every stage of your journey
-            </p>
-          </motion.div>
+  <div className="relative z-10 max-w-4xl mx-auto">
+    <motion.h2
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+      className="text-4xl md:text-5xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6"
+    >
+      Build With Us Now
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="text-lg md:text-xl text-slate-600 font-light mb-10 leading-relaxed"
+    >
+      Whether you're launching a startup or upgrading your enterprise platform, our expert team is ready to co-create your mobile-first future.
+    </motion.p>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              {plans.map((plan, index) => (
-                <motion.div
-                  key={plan.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  <input
-                    type="radio"
-                    id={plan.title}
-                    name="pricing"
-                    value={plan.title}
-                    checked={selectedPlan === plan.title}
-                    onChange={(e) => setSelectedPlan(e.target.value)}
-                    className="sr-only"
-                  />
-                  <label
-                    htmlFor={plan.title}
-                    className={`block cursor-pointer rounded-3xl p-8 transition-all duration-300 ${
-                      selectedPlan === plan.title
-                        ? 'bg-dark/20 backdrop-blur-sm border-2 border-black/50 shadow-2xl scale-105'
-                        : 'bg-dark/10 backdrop-blur-sm border-2 border-black/20 hover:bg-white/15 hover:border-white/30'
-                    }`}
-                  >
-                    {plan.popular && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                          Most Popular
-                        </span>
-                      </div>
-                    )}
-                    
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
-                      <div className="flex items-baseline justify-center gap-1">
-                        <span className="text-5xl font-black">{plan.price}</span>
-                        <span className="text-xl text-black/70">/mo</span>
-                      </div>
-                    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
+      <a href="/consult">
+        <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-3 py-1 animate-bounce rounded-full text-lg font-semibold shadow-lg shadow-indigo-500/25 transition-all duration-300">
+          Start Now
+        </button>
+      </a>
+    </motion.div>
+  </div>
+</section>
 
-                    <ul className="space-y-4 mb-8">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-3">
-                          <FaCheckCircle className="text-green-400 flex-shrink-0" />
-                          <span className="text-black/90">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className={`w-full py-3 px-6 rounded-2xl font-semibold text-center transition-all duration-300 ${
-                      selectedPlan === plan.title
-                        ? 'bg-white text-indigo-900 shadow-lg'
-                        : 'bg-white/20 text-gray-700 hover:bg-white/30'
-                    }`}>
-                      {selectedPlan === plan.title ? 'Selected' : 'Select Plan'}
-                    </div>
-                  </label>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-center mt-12"
-            >
-              <button className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-12 py-4 rounded-2xl text-lg font-semibold shadow-xl shadow-pink-500/25 transition-all duration-300 hover:scale-105">
-                Start with {selectedPlan}
-              </button>
-            </motion.div>
-          </div>
-          
-        </div>
-      </section>
+     
+      
     
       <FAQSection />
       <PreFooterCTA/>
     </div>
+    </>
   );
 };
 

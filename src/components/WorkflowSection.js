@@ -4,7 +4,7 @@ import WORKFLOW from "../assets/WORKFLOW.png";
 
 const WorkflowSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-t from-white to-blue-50 flex flex-row max-md:flex-col items-center justify-between px-10 md:px-20 gap-12">
+    <section id="webdev" className="py-16 bg-gradient-to-t from-white to-blue-50 flex flex-row max-md:flex-col items-center justify-between px-10 md:px-20 gap-12">
       <div className="flex justify-center items-center w-full md:w-1/2">
         <img
           src={WORKFLOW}

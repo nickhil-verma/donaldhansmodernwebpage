@@ -3,11 +3,11 @@ import React from "react";
 
 export const PreFooterCTA = () => (
   <div className="bg-gradient-to-t min-h-[70vh] items-center justify-center align-middle flex flex-col to-purple-50 from-white text-black py-16 px-6 text-center">
-    <h2 className="text-3xl sm:text-4xl max-w-[40%] max-md:max-w-[60%] font-bold mb-4">
-      Increase your brand visibility using React & Tailwind
+    <h2 className="text-3xl sm:text-4xl max-w-[70%] max-md:max-w-[60%] font-bold mb-4">
+Your Brand Deserves the Spotlight – Let Donald Hans Take You There!
     </h2>
-    <p className="text-lg opacity-90 mb-6">
-      Donald Hans provides cutting-edge IT solutions tailored to your business growth.
+    <p className="text-lg text-gray-700 leading-tight max-w-[60%] opacity-90 mb-6">
+     Donald Hans, a trusted software developer from the heart of Silicon Valley, knows how to turn brands into industry standouts through smart, high-impact digital moves.
     </p>
     <a href="/consult">
       <button className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition">
