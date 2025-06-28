@@ -31,8 +31,8 @@ const features = [
     title: "Secure & Efficient Deployment",
     description:
       "With our blazing fast, cutting-edge infrastructure (backed by leading cloud providers), you can deploy solutions instantly and securely globally.",
-    component: <Globe />,  
-    className: "sm:col-span-2 h-96 lg:col-span-2",
+    component: <Globe  />,  
+    className: "sm:col-span-2 max:md-h   lg:col-span-2",
   },
    
 ];
@@ -55,7 +55,7 @@ const FeatureCard = ({ title, description, image, component, className }) => (
       </div>
     )}
     {component && (
-      <div className="mt-4 w-full flex items-center justify-center flex-grow">
+      <div className="mt-4 w-full min-h-60 flex items-center justify-center flex-grow">
         {component}
       </div>
     )}
