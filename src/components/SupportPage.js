@@ -1,6 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 
 const App = () => {
+     useEffect(() => {
+      document.title = "Donald Hans | Chat bot";
+    }, []);
+   
   const [open, setOpen] = useState(true);
   const [chat, setChat] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -69,6 +73,8 @@ const App = () => {
   // Smart context addition for the AI prompt
   const addSmartContext = (userMessage) => {
     const lowerMessage = userMessage.toLowerCase();
+    // Manual Helmet for "Donald Hans | Chat bot"
+ 
 
     const timeKeywords = ["time", "duration", "how long", "timeline", "deadline", "when"];
     const costKeywords = ["cost", "price", "budget", "expensive", "cheap", "fee", "payment", "money"];
