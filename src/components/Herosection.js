@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 // Removed react-icons imports due to resolution issues. Using inline SVGs instead.
 import { RiGeminiFill } from "react-icons/ri";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { FaArrowRightLong } from "react-icons/fa6";
+
 // Inline SVG for RiGeminiFill
 const GeminiIcon = ({ className }) => (
   <svg
@@ -38,12 +40,13 @@ const CheckIcon = ({ className }) => (
   </svg>
 );
 
-
 // FeatureItem component displays an icon and text for a feature.
 const FeatureItem = ({ icon, text }) => (
   <div className="flex items-center space-x-3">
-    <div className="w-5 h-5 text-blue-600 flex-shrink-0">{icon}</div> {/* Added flex-shrink-0 */}
-    <span className="text-gray-700 text-base sm:text-lg">{text}</span> {/* Adjusted font size for responsiveness */}
+    <div className="w-5 h-5 text-blue-600 flex-shrink-0">{icon}</div>{" "}
+    {/* Added flex-shrink-0 */}
+    <span className="text-gray-700 text-base sm:text-lg">{text}</span>{" "}
+    {/* Adjusted font size for responsiveness */}
   </div>
 );
 
@@ -82,7 +85,8 @@ const ConsultationWidget = () => {
         // Stay longer after all images are visible
         timeout = setTimeout(() => setPhase("fadeOut"), 15000);
       }
-    } else { // phase === "fadeOut"
+    } else {
+      // phase === "fadeOut"
       if (visibleWindows.length > 0) {
         timeout = setTimeout(() => {
           // Remove the last visible window
@@ -109,18 +113,26 @@ const ConsultationWidget = () => {
     // Main container for the widget with responsive aspect ratio and max width
     <div className="bg-gradient-to-b from-white/60 to-purple-100 aspect-[20/18] w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-md p-4 sm:p-6 rounded-3xl border border-gray-300 flex items-center justify-center shadow-lg">
       {/* Inner container for the image cards, now fluid */}
-      <div className="relative w-full h-full max-w-[360px] max-h-[460px]"> {/* Added max-w/h to limit growth */}
+      <div className="relative w-full h-full max-w-[360px] max-h-[460px]">
+        {" "}
+        {/* Added max-w/h to limit growth */}
         {visibleWindows.map((idx, i) => (
           <div
             key={idx}
             // Apply responsive offsets and fade out effect
             className={`absolute left-0 top-0 w-full transition-all duration-700 ease-in-out
               ${windowOffsets[i]}
-              ${i === visibleWindows.length - 1 && phase === "fadeOut" ? "opacity-0" : "opacity-100"}
+              ${
+                i === visibleWindows.length - 1 && phase === "fadeOut"
+                  ? "opacity-0"
+                  : "opacity-100"
+              }
               transition-opacity
             `}
             // Ensure only the top-most card is interactive
-            style={{ pointerEvents: i === visibleWindows.length - 1 ? "auto" : "none" }}
+            style={{
+              pointerEvents: i === visibleWindows.length - 1 ? "auto" : "none",
+            }}
           >
             <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden w-full transition-transform duration-500 delay-300 hover:scale-105">
               {/* Top Bar for the card */}
@@ -144,7 +156,9 @@ const ConsultationWidget = () => {
                   // Fallback for image loading errors
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = `https://placehold.co/400x250/dbeafe/1e40af?text=${encodeURIComponent(IMAGES[idx].title.replace(/\s/g, '+'))}`;
+                    e.target.src = `https://placehold.co/400x250/dbeafe/1e40af?text=${encodeURIComponent(
+                      IMAGES[idx].title.replace(/\s/g, "+")
+                    )}`;
                   }}
                 />
               </div>
@@ -155,7 +169,6 @@ const ConsultationWidget = () => {
     </div>
   );
 };
-
 
 // HeroSection component is the main landing section of the page.
 const HeroSection = () => {
@@ -181,7 +194,8 @@ const HeroSection = () => {
           <div>
             <div className="mb-6 max-md:mt-11">
               <span className="hover:cursor-pointer hover:scale-105 transition duration-300 inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/30 backdrop-blur border border-black/20 text-blue-800">
-                <RiGeminiFill className="mr-2" /> IT & SEO Consulting Expert <MdKeyboardArrowRight className="ml-2" />
+                <RiGeminiFill className="mr-2" /> IT & SEO Consulting Expert{" "}
+                <MdKeyboardArrowRight className="ml-2" />
               </span>
             </div>
 
@@ -203,9 +217,12 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a href="/consult" className="w-full sm:w-auto">
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl text-base sm:text-lg">
-                  Get Consultation
+              <a href="/Chatbot" className="w-full sm:w-auto">
+                <button className="w-full bg-gradient-to-r flex items-center justify-center gap-2 from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-full font-semibold transition-all duration-200 shadow-lg hover:shadow-xl text-base sm:text-lg">
+                  <span className="inline-flex items-center gap-2">
+                    Chat Bot Integration{" "}
+                    <FaArrowRightLong className="text-white" />
+                  </span>
                 </button>
               </a>
               <a href="/projects" className="w-full sm:w-auto">

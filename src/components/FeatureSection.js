@@ -1,53 +1,40 @@
-// FeatureSection.jsx
+ 
 import React from "react";
-// Assuming Globe is a visually appealing component related to deployment/global reach
-import Globe from "./Globe"; // Ensure this path is correct
-// You might want to replace ANALYTICS with a more generic "services" or "solutions" icon if available
-import ANALYTICS from "../assets/analytics.png"; // Ensure this path is correct or replace with a relevant local asset
+import CLOUDIMG from "../assets/Cloudimage.png"
+import CUSTOMSOFTWARE from "../assets/Customsoftwaredev.png";
+import Globe from "./Globe";   
+ import ANALYTICS from "../assets/analytics.png";  
 
 const features = [
   {
     title: "Strategic IT Consulting",
     description:
       "Align your technology with business goals. We provide expert IT strategy, roadmap development, and digital transformation guidance to drive growth and efficiency.",
-    image: ANALYTICS, // Could be a flowchart, a handshake, or a 'brainstorming' icon
+    image: ANALYTICS,  
     className: "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2",
   },
   {
     title: "Cloud Solutions & Migration",
     description:
       "Seamlessly transition to and manage robust cloud environments. Leverage AWS, Azure, and GCP for scalable, secure, and cost-effective infrastructure.",
-    image: "https://cdn-icons-png.flaticon.com/512/861/861304.png", // Cloud icon
+    image: CLOUDIMG, 
     className: "",
   },
   {
     title: "Custom Software Development",
     description:
       "Build bespoke applications tailored to your unique business needs. From web and mobile apps to enterprise solutions, we deliver high-quality, scalable software.",
-    image: "https://cdn-icons-png.flaticon.com/512/1005/1005141.png", // Code icon
+    image: CUSTOMSOFTWARE,  
     className: "",
   },
   {
     title: "Secure & Efficient Deployment",
     description:
       "With our blazing fast, cutting-edge infrastructure (backed by leading cloud providers), you can deploy solutions instantly and securely globally.",
-    component: <Globe />, // The interactive globe component fits well here
-    className: "sm:col-span-2 lg:col-span-2",
+    component: <Globe />,  
+    className: "sm:col-span-2 h-96 lg:col-span-2",
   },
-  // Optional: You could add more features if your grid design allows for scrolling or more rows.
-  // For example, if you wanted 6 cards total and adjust grid auto-rows or individual card classes.
-  // {
-  //   title: "Cybersecurity & Compliance",
-  //   description: "Protect your assets with robust security measures and ensure compliance with industry standards and regulations.",
-  //   image: "https://cdn-icons-png.flaticon.com/512/2920/2920556.png", // Shield/security icon
-  //   className: "",
-  // },
-  // {
-  //   title: "Data Analytics & AI Integration",
-  //   description: "Transform raw data into actionable insights and integrate AI to automate processes and enhance decision-making.",
-  //   image: "https://cdn-icons-png.flaticon.com/512/1085/1085449.png", // Data icon
-  //   className: "",
-  // },
+   
 ];
 
 const FeatureCard = ({ title, description, image, component, className }) => (
@@ -63,7 +50,7 @@ const FeatureCard = ({ title, description, image, component, className }) => (
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-contain rounded-xl opacity-90"
+          className="w-full h-full mix-blend-multiply    object-contain rounded-3xl opacity-90"
         />
       </div>
     )}

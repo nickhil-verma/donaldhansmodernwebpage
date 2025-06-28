@@ -13,16 +13,20 @@ import TechStackSection from "./components/TechStackSection";
 import StatsSection from "./components/StatsSection";
 import ReviewCarousel from "./components/ReviewCarousel";
 import FAQSection from "./components/FAQSection";
-import FooterSection from "./components/FooterSection";
+ import FooterSection, { PreFooterCTA, Footer } from "./components/FooterSection";
+import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Consult from "./pages/Consult";
+import ChatBot from "./pages/ChatBot";
+import { SignupFormDemo } from "./components/signup";
+ 
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Router>
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      
 
       <Routes>
         <Route
@@ -36,7 +40,7 @@ const App = () => {
                   content="Explore streamlined workflows, analytics, tech stack, and client support."
                 />
               </Helmet>
-
+              <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
               <HeroSection />
               <Clients />
               <WorkflowSection />
@@ -47,16 +51,19 @@ const App = () => {
               <StatsSection />
               <ReviewCarousel />
               <FAQSection />
+              <PreFooterCTA />
             </>
           }
         />
         {/* You can add more <Route />s here if needed */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/consult" element={<Consult/>} />
-       
+        <Route path="/about" element={<About />} />
+        <Route path="/Chatbot" element={<ChatBot/>} />
+        <Route path="/signup" element={<SignupFormDemo/>} />
       </Routes>
 
-      <FooterSection />
+      <Footer />
     </Router>
   );
 };

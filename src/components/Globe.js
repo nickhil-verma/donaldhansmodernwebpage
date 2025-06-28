@@ -1,94 +1,96 @@
-// Globe.jsx
-import React, { Suspense, useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useRef, useEffect } from "react";
+import createGlobe from "cobe";
 
-// Utility to convert lat/lon to 3D position
-function latLongToVector3(lat, lon, radius) {
-  const phi = (90 - lat) * (Math.PI / 180);
-  const theta = (lon + 180) * (Math.PI / 180);
-  const x = -radius * Math.sin(phi) * Math.cos(theta);
-  const z = radius * Math.sin(phi) * Math.sin(theta);
-  const y = radius * Math.cos(phi);
-  return [x, y, z];
-}
+const Globe = () => {
+  const canvasRef = useRef(null);
+  const globeRef = useRef(null);
 
-function DotGlobe() {
-  const globeRef = useRef();
+  useEffect(() => {
+    if (!canvasRef.current) return;
 
-  // Rotate globe slowly
-  useFrame(() => {
-    if (globeRef.current) {
-      globeRef.current.rotation.y += 0.0015;
-    }
-  });
+    let phi = 0;
 
-  // Create white dots for continents (mock positions for now)
-  const dots = useMemo(() => {
-    const positions = [];
-    for (let lat = -60; lat <= 80; lat += 10) {
-      for (let lon = -180; lon <= 180; lon += 10) {
-        if (Math.random() > 0.7) { // Randomly place dots to simulate continents
-          positions.push(latLongToVector3(lat, lon, 1.52));
-        }
-      }
-    }
-    return positions;
+    // Function to create or recreate globe with given width/height
+    const createOrUpdateGlobe = (width, height) => {
+      if (globeRef.current) globeRef.current.destroy();
+
+      globeRef.current = createGlobe(canvasRef.current, {
+        devicePixelRatio: 2,
+        width: width * 2,
+        height: height * 2,
+        phi: 0,
+        theta: 0,
+        dark: 0, // Light mode globe
+        diffuse: 1.5,
+        mapSamples: 16000,
+        mapBrightness: 7,
+        baseColor: [1, 1, 1], // White
+        markerColor: [0.6, 0.8, 1], // Light blue (Tailwind blue-50)
+        glowColor: [0.8, 0.6, 1],   // Purple-50 glow
+        markers: [
+          { location: [34.05, -118.24], size: 0.1 }, // LA
+          { location: [51.5074, -0.1278], size: 0.07 }, // London
+          { location: [34.05, -118.24], size: 0.1 },    // Los Angeles
+  { location: [40.7128, -74.006], size: 0.1 },  // New York
+  { location: [41.8781, -87.6298], size: 0.08 }, // Chicago
+  { location: [29.7604, -95.3698], size: 0.07 }, // Houston
+  { location: [33.4484, -112.074], size: 0.07 }, // Phoenix
+
+  // China major cities
+  { location: [39.9042, 116.4074], size: 0.1 },  // Beijing
+  { location: [31.2304, 121.4737], size: 0.1 },  // Shanghai
+  { location: [23.1291, 113.2644], size: 0.08 }, // Guangzhou
+  { location: [22.5431, 114.0579], size: 0.07 }, // Shenzhen
+  { location: [30.5728, 104.0668], size: 0.07 }, // Chengdu
+
+  // Europe major cities
+  { location: [51.5074, -0.1278], size: 0.1 },   // London
+  { location: [48.8566, 2.3522], size: 0.1 },    // Paris
+  { location: [52.52, 13.405], size: 0.08 },     // Berlin
+  { location: [41.9028, 12.4964], size: 0.07 },  // Rome
+  { location: [40.4168, -3.7038], size: 0.07 },  // Madrid
+         ],
+        onRender: (state) => {
+          state.phi = phi;
+          phi += 0.01;
+        },
+      });
+    };
+
+    // Initial size setup
+    const parent = canvasRef.current.parentElement;
+    const width = parent.clientWidth;
+    const height = parent.clientHeight;
+
+    createOrUpdateGlobe(width, height);
+
+    // Resize observer to watch parent size changes
+    const resizeObserver = new ResizeObserver(() => {
+      const w = parent.clientWidth;
+      const h = parent.clientHeight;
+      canvasRef.current.width = w * 2;
+      canvasRef.current.height = h * 2;
+      canvasRef.current.style.width = `${w}px`;
+      canvasRef.current.style.height = `${h}px`;
+      createOrUpdateGlobe(w, h);
+    });
+
+    resizeObserver.observe(parent);
+
+    return () => {
+      resizeObserver.disconnect();
+      if (globeRef.current) globeRef.current.destroy();
+    };
   }, []);
 
-  // Pin for Los Angeles (approx. lat 34.05, lon -118.24)
-  const laPosition = latLongToVector3(34.05, -118.24, 1.53);
-
   return (
-    <>
-      {/* Glow Effect - Increased opacity for better visibility */}
-      <mesh scale={1.05}>
-        <sphereGeometry args={[1.5, 64, 64]} />
-        <meshBasicMaterial color="#3B82F6" transparent opacity={0.15} /> {/* Increased opacity */}
-      </mesh>
-
-      {/* Main Globe */}
-      <mesh ref={globeRef}>
-        <sphereGeometry args={[1.5, 64, 64]} />
-        <meshStandardMaterial
-          color="#0f172a" // Keeping dark color but relying on improved lighting
-          metalness={0.2}
-          roughness={0.9}
-          transparent
-          opacity={0.9}
-        />
-      </mesh>
-
-      {/* Dots representing continents - Changed to cyan for visibility on white background */}
-      {dots.map((pos, i) => (
-        <mesh key={i} position={pos}>
-          <sphereGeometry args={[0.015, 8, 8]} />
-          <meshBasicMaterial color="#06b6d4" /> {/* Cyan color (Tailwind cyan-500) */}
-        </mesh>
-      ))}
-
-      {/* Pin at Los Angeles */}
-      <mesh position={laPosition}>
-        <sphereGeometry args={[0.03, 16, 16]} />
-        <meshStandardMaterial color="#3B82F6" emissive="#3B82F6" emissiveIntensity={1} />
-      </mesh>
-    </>
-  );
-}
-
-export default function Globe() {
-  return (
-    <div className="w-full h-64"> {/* Ensure parent div provides dimensions */}
-      <Canvas camera={{ position: [0, 0, 4] }}>
-        <ambientLight intensity={0.7} /> {/* Increased ambient light */}
-        <directionalLight position={[3, 3, 3]} intensity={0.8} color="#3B82F6" /> {/* Original blue light */}
-        <directionalLight position={[-3, -3, -3]} intensity={0.5} color="#FFFFFF" /> {/* New white light from another angle */}
-        <Suspense fallback={null}>
-          <DotGlobe />
-        </Suspense>
-        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-      </Canvas>
+    <div className="w-full h-full flex items-center justify-center">
+      <canvas
+        ref={canvasRef}
+        style={{ width: "100%", height: "100%", display: "block" }}
+      />
     </div>
   );
-}
+};
+
+export default Globe;

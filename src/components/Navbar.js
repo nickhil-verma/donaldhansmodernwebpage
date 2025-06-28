@@ -1,49 +1,84 @@
-import React from "react";
-import LOGO from "../assets/logo.png";  
+import React, { useState } from "react";
+import LOGO from "../assets/logo.png";
+import { IoIosArrowDown } from "react-icons/io";
+
 const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [capabilitiesExpanded, setCapabilitiesExpanded] = useState(false); // for mobile
+
+  const capabilities = [
+    { label: "SEO Improvement", href: "#seo" },
+    { label: "Web Development", href: "#web-dev" },
+    { label: "Chat Bot", href: "#chatbot" },
+    { label: "Marketing Research", href: "#marketing" },
+    { label: "Social Media Management", href: "#social-media" },
+  ];
+
   const menuItems = [
-    { label: "IT Consulting", href: "#it-consulting" },
-    { label: "SEO Services", href: "#seo-services" },
-    { label: "Digital Marketing", href: "#digital-marketing" },
-    { label: "Web Development", href: "#web-development" },
     { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/consult" },
+    { label: "Mobile App", href: "#mobile-app" },
   ];
 
   return (
     <>
-      <nav className="flex  items-center justify-between px-6 py-4    bg-white   shadow-sm fixed w-full z-50 font-helvetica font-normal">
-        {/* Left: Logo */}
-        <div className="flex items-center p-0">
-          <a href="/"><img
-            src= {LOGO}
-            alt="Logo"
-            className="w-10  h-10 p-0 "
-          /></a>
-          
-           
+      <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-sm fixed w-full z-50 font-helvetica font-normal">
+        {/* Logo */}
+        <div className="flex items-center">
+          <a href="/">
+            <img src={LOGO} alt="Logo" className="w-10 h-10" />
+          </a>
         </div>
 
-        {/* Middle: Desktop Menu */}
-        <div className="hidden lg:flex space-x-6 mx-auto">
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex space-x-6 mx-auto items-center">
+          {/* Hover Dropdown for Desktop */}
+          <div
+            className="relative"
+            onMouseEnter={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
+          >
+            <button className="inline-flex items-center gap-1 justify-center text-gray-700 hover:text-blue-600 transition-colors">
+              Our Capabilities <IoIosArrowDown/>
+            </button>
+            <div
+              className={`absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-md z-50 transition-all duration-200 ${
+                showDropdown ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
+            >
+              <ul className="py-2">
+                {capabilities.map((item, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={item.href}
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Other Links */}
           {menuItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
               className="text-gray-700 hover:text-blue-600 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        {/* Consult Now Button (Desktop) */}
-        <button className="ml-4 max-lg:hidden px-2 py-1 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
+        {/* Consult Now (desktop only) */}
+        <button className="ml-4 max-lg:hidden px-3 py-1 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
           Consult Now
         </button>
 
-        {/* Hamburger Button (Mobile) */}
+        {/* Hamburger for mobile */}
         <div className="lg:hidden">
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -62,11 +97,7 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
             ></span>
           </button>
         </div>
-           
       </nav>
-    
-      
-      
 
       {/* Mobile Menu */}
       <div
@@ -74,29 +105,59 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="px-6 py-4 text-right">
-          <ul className="space-y-4">
-            {menuItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="block text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+        <div className="px-6 py-4">
+          <ul className="space-y-4 text-left">
+            {/* Clickable collapsible for mobile */}
+            <li className="flex justify-between items-center text-gray-900 font-semibold">
+              <button
+                onClick={() => setCapabilitiesExpanded((prev) => !prev)}
+                className="w-full text-left"
               >
-                {item.label}
-              </a>
+                Our Capabilities
+              </button>
+              <span className="text-blue-600 text-sm">
+                {capabilitiesExpanded ? "▲" : "▼"}
+              </span>
+            </li>
+
+            {capabilitiesExpanded && (
+              <ul className="ml-4 space-y-2 mt-1">
+                {capabilities.map((item, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={item.href}
+                      className="block text-gray-700 hover:text-blue-600 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Other links */}
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <a
+                  href={item.href}
+                  className="block text-gray-700 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </li>
             ))}
           </ul>
 
-          {/* Consult Now Button (Mobile) */}
-          <div className="mt-6">
-            <button className="w-1/4 px-2 py-1 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm r hover:from-blue-600 hover:to-purple-600 transition">
+          {/* Mobile Consult Button */}
+          <div className="mt-6 text-center">
+            <button className="w-1/2 px-3 py-2 bg-gradient-to-b from-blue-500 to-purple-500 text-white rounded-full text-sm hover:from-blue-600 hover:to-purple-600 transition">
               Consult Now
             </button>
           </div>
         </div>
       </div>
-     
     </>
   );
 };

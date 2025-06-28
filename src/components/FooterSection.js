@@ -1,8 +1,8 @@
 // FooterSection.jsx
 import React from "react";
 
-const PreFooterCTA = () => (
-  <div className="bg-gradient-to-t min-h-[70vh] items-center justify-center align-middle flex flex-col to-purple-50 from-white  text-black py-16 px-6 text-center">
+export const PreFooterCTA = () => (
+  <div className="bg-gradient-to-t min-h-[70vh] items-center justify-center align-middle flex flex-col to-purple-50 from-white text-black py-16 px-6 text-center">
     <h2 className="text-3xl sm:text-4xl max-w-[40%] max-md:max-w-[60%] font-bold mb-4">
       Increase your brand visibility using React & Tailwind
     </h2>
@@ -15,8 +15,8 @@ const PreFooterCTA = () => (
   </div>
 );
 
-const Footer = () => (
-  <footer className=" border-t bg-gradient-to-t from-blue-100 to-white border-gray-200">
+export const Footer = () => (
+  <footer className="border-t bg-gradient-to-t from-blue-100 to-white border-gray-200">
     <div className="max-w-7xl mx-auto py-16 px-6 sm:px-8">
       <div className="flex flex-col md:flex-row md:justify-between">
         <div className="mb-10 md:mb-0">

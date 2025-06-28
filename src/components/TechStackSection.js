@@ -41,10 +41,10 @@ const TechStackSection = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
         {/* Left Section: Text */}
         <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+          <h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-black mb-4 leading-tight">
             Technologies We Use
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-xl mx-auto md:mx-0">
+          <p className="text-lg text-gray-700 mb-8   max-w-xl mx-auto md:mx-0">
             Our expert team works with modern and powerful technologies to build scalable, efficient, and robust digital solutions.
           </p>
         </div>
@@ -53,7 +53,7 @@ const TechStackSection = () => {
         <div className="w-full md:w-1/2">
           <div className="p-4 rounded-xl shadow-inner">
             {/* Row 1: Left Scrolling */}
-            <Marquee gradient={false} speed={40} pauseOnHover className="overflow-hidden mb-4">
+            <Marquee gradient={false} speed={40} pauseOnHover className="overflow-hidden p-3">
               {techStacksRow1.map((tech, index) => (
                 <div
                   key={`row1-${index}`}
@@ -66,11 +66,11 @@ const TechStackSection = () => {
             </Marquee>
 
             {/* Row 2: Right Scrolling */}
-            <Marquee gradient={false} speed={40} pauseOnHover direction="right">
+            <Marquee className="overflow-hidden p-3" gradient={false} speed={40} pauseOnHover direction="right">
               {techStacksRow2.map((tech, index) => (
                 <div
                   key={`row2-${index}`}
-                  className="flex flex-col items-center justify-center w-28 h-28 mx-3 bg-white rounded-xl border border-gray-200 transition-transform duration-200 hover:scale-105"
+                  className="flex flex-col items-center over justify-center w-28 h-28 mx-3 bg-white rounded-xl border border-gray-200 transition-transform duration-200 hover:scale-105"
                 >
                   {tech.icon}
                   <span className="text-sm mt-2 text-gray-700">{tech.label}</span>
