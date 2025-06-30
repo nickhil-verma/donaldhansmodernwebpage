@@ -5,35 +5,56 @@ import { FiPlus, FiX } from "react-icons/fi";
 
 const faqData = [
   {
-    question: "What services do you offer as an IT consultancy?",
-    answer:
-      "We offer IT infrastructure planning, cybersecurity, cloud migration, software development, and SEO/digital marketing solutions."
-  },
-  {
-    question: "Can you integrate your solutions with our existing systems?",
-    answer:
-      "Absolutely. We specialize in seamless integration with your current tech stack, including CRMs, ERPs, and cloud platforms."
-  },
-  {
-    question: "Do you provide ongoing support after implementation?",
-    answer:
-      "Yes, we provide post-deployment support, maintenance, and optimization to ensure long-term success."
-  },
-  {
-    question: "Is there a minimum project size or budget?",
-    answer:
-      "No project is too small. We work with startups to enterprises, tailoring our services to your scale and needs."
-  },
-  {
-    question: "Can you help optimize our website for performance and SEO?",
-    answer:
-      "Yes. We audit and optimize your website for speed, SEO, mobile responsiveness, and user experience."
-  },
-  {
-    question: "How do we get started with a consultation?",
-    answer:
-      "Just click our 'Free Consultation' button or contact us directly. We'll assess your needs and recommend the best strategy."
-  }
+  question: "What industries do you specialize in?",
+  answer:
+    "We have experience across industries including healthcare, e-commerce, education, logistics, and fintech, with tailored solutions for each."
+},
+{
+  question: "Do you build custom software or only provide consultation?",
+  answer:
+    "We do both. From advising on tech strategy to fully developing custom web and mobile applications, we cover end-to-end solutions."
+},
+{
+  question: "Can you help us migrate from legacy systems?",
+  answer:
+    "Yes. We specialize in smooth migration from outdated systems to modern, scalable platforms with minimal downtime."
+},
+{
+  question: "What is your typical project timeline?",
+  answer:
+    "Project timelines vary, but we typically deliver MVPs in 4–8 weeks and full-scale solutions within 3–6 months depending on scope."
+},
+{
+  question: "How do you ensure data security and compliance?",
+  answer:
+    "We follow best practices in cybersecurity, encryption, and compliance with standards like GDPR, HIPAA, and ISO certifications."
+},
+{
+  question: "Do you provide cloud infrastructure setup and management?",
+  answer:
+    "Absolutely. We set up, manage, and optimize cloud services including AWS, Azure, and Google Cloud tailored to your needs."
+},
+{
+  question: "Can you support our remote or distributed teams?",
+  answer:
+    "Yes. We design collaboration workflows, cloud systems, and remote access solutions ideal for hybrid or fully remote teams."
+},
+{
+  question: "Do you offer UI/UX design services?",
+  answer:
+    "Yes. We create user-friendly, responsive, and accessible interfaces backed by UX research and modern design tools."
+},
+{
+  question: "How is pricing determined for your services?",
+  answer:
+    "Pricing depends on project scope, duration, and complexity. We offer flexible models including hourly, fixed-price, and retainer-based."
+},
+{
+  question: "What makes your consultancy different from others?",
+  answer:
+    "We combine strategic thinking, full-stack development, and long-term partnership—backed by real-world experience across domains."
+}
+
 ];
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => (

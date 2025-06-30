@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import LOGO from "../assets/logo.png";
 
@@ -9,26 +9,28 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
   const menuItems = [
     { label: "Web Development", section: "webdev" },
     { label: "SEO Improvement", section: "seo" },
-   
     { label: "Mobile App", href: "/mobile-app" },
     { label: "Chat Bot", href: "/chatbot" },
-     { label: "About Us", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Contact", href: "/consult" },
   ];
 
-  const handleNavigateToSection = (section) => {
-    if (location.pathname !== "/") {
-      navigate(`/#${section}`);
-    } else {
-      const el = document.getElementById(section);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.location.hash = section;
-      }
+  // 🔁 Scroll + reset hash after reaching section
+  const linkResetForSections = (section) => {
+  if (location.pathname !== "/") {
+    navigate(`/#${section}`);
+  } else {
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        window.history.replaceState(null, null, window.location.pathname);
+      }, 600); // Reset hash after scroll finishes
     }
-    setIsMenuOpen(false);
-  };
+  }
+  setIsMenuOpen(false);
+};
+
 
   return (
     <>
@@ -45,7 +47,7 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
             item.section ? (
               <button
                 key={index}
-                onClick={() => handleNavigateToSection(item.section)}
+                onClick={() => linkResetForSections(item.section)}
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
                 {item.label}
@@ -102,7 +104,7 @@ const Navbar = ({ isMenuOpen = false, setIsMenuOpen = () => {} }) => {
               item.section ? (
                 <li key={index}>
                   <button
-                    onClick={() => handleNavigateToSection(item.section)}
+                    onClick={() => linkResetForSections(item.section)}
                     className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors"
                   >
                     {item.label}

@@ -79,7 +79,7 @@ const Layout = () => {
               <Analytics />
               <TechStackSection />
               
-              <ReviewCarousel />
+              {/* <ReviewCarousel /> */}
               <FAQSection />
               <PreFooterCTA />
             </>

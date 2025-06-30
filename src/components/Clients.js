@@ -12,8 +12,8 @@ const clientLogos = [
   'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg', // Google Logo (SVG, transparent)
     'https://i.postimg.cc/HkHrBRMY/R.png',
    
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png', // Amazon Logo (transparent PNG from SVG)
-  'https://i.postimg.cc/6QB2T3dX/d0a38d-24866c59c8af46e789398b90866095d7-mv2-removebg-preview.png',  
+  // 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png', // Amazon Logo (transparent PNG from SVG)
+  // 'https://i.postimg.cc/6QB2T3dX/d0a38d-24866c59c8af46e789398b90866095d7-mv2-removebg-preview.png',  
   
 
   
