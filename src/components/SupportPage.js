@@ -217,7 +217,7 @@ Important instructions for this response:
                 <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
               </svg>
             </button>
-            <button
+            <a href="/chatbot"><button
               onClick={() => setOpen(false)}
               className="text-white p-1 rounded-full hover:bg-white hover:bg-opacity-20 transition"
               aria-label="Close chat"
@@ -225,7 +225,7 @@ Important instructions for this response:
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
               </svg>
-            </button>
+            </button></a>
           </div>
         </div>
 

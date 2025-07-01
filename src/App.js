@@ -14,6 +14,7 @@ import HeroSection from "./components/Herosection";
 import Clients from "./components/Clients";
 import WorkflowSection from "./components/WorkflowSection";
 import Support from "./components/Support";
+import MarketResearch from "./components/MarketResearch";
 import FeatureSection from "./components/FeatureSection";
 import Analytics from "./components/Analytics";
 import TechStackSection from "./components/TechStackSection";
@@ -76,6 +77,8 @@ const Layout = () => {
               <WorkflowSection />
               <Support />
               <FeatureSection />
+                            <MarketResearch/>
+
               <Analytics />
               <TechStackSection />
               

@@ -51,7 +51,7 @@ const Consult = () => {
             <input
               id="firstname"
               type="text"
-              placeholder="Tyler"
+              placeholder="John"
               className={inputClass}
             />
           </LabelInputContainer>
@@ -59,7 +59,7 @@ const Consult = () => {
             <input
               id="lastname"
               type="text"
-              placeholder="Durden"
+              placeholder="Doe"
               className={inputClass}
             />
           </LabelInputContainer>
@@ -69,7 +69,7 @@ const Consult = () => {
           <input
             id="email"
             type="email"
-            placeholder="tyler@donalhans.com"
+            placeholder="johndoe@example.com"
             className={inputClass}
           />
         </LabelInputContainer>

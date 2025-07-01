@@ -23,7 +23,7 @@ export function SignupFormDemo() {
             <input
               id="firstname"
               type="text"
-              placeholder="Tyler"
+              placeholder="John"
               className={inputClass}
             />
           </LabelInputContainer>
@@ -31,7 +31,7 @@ export function SignupFormDemo() {
             <input
               id="lastname"
               type="text"
-              placeholder="Durden"
+              placeholder="Doe"
               className={inputClass}
             />
           </LabelInputContainer>
@@ -41,7 +41,7 @@ export function SignupFormDemo() {
           <input
             id="email"
             type="email"
-            placeholder="tyler@donalhans.com"
+            placeholder="Johndoe@example.com"
             className={inputClass}
           />
         </LabelInputContainer>
