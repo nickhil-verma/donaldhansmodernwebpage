@@ -4,10 +4,10 @@ import React, { useState, useEffect } from 'react';
 const dummyProjects = [
   {
     id: 1,
-    name: 'E-commerce Platform',
-    description: 'A full-stack e-commerce application with user authentication, product listings, shopping cart, and secure checkout. Built with React, Node.js, Express, and MongoDB.',
-    url: 'https://example.com/ecommerce',
-    imageUrl: 'https://placehold.co/400x250/dbeafe/1e40af?text=E-commerce'
+    name: 'Eternalan',
+    description: '🎵 A full-stack music platform crafted with love — discover, stream, and support independent artists from around the world. Featuring seamless user authentication, curated music libraries, dynamic playlists, and a smooth audio player experience. Built with React, Node.js, Express, and MongoDB, this platform harmonizes modern tech with soulful vibes. Secure, scalable, and made for true music lovers',
+    url: 'https://eternalan.vercel.app',
+    imageUrl: 'https://i.postimg.cc/0Nzrj6Xt/Screenshot-2025-07-10-095758.png'
   },
   {
     id: 2,
